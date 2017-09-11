@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+    <title>Phone Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="themes/my-theme.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile.structure-1.2.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+    <style type="text/css">
+        h2 {text-align: center;text-transform: uppercase}
+        #homephone:valid, #workphone:valid {background-color: #004587;}
+        #homephone:invalid, #workphone:invalid  {background-color: red;}
+    </style>
+    <script src="index.js"></script>
+</head>
+<body>
+<!------------------------------------Main Page---------------------------------->
+<div data-role="page" id="main" data-theme="a">
+
+    <div data-role="header">
+        <heading>
+            <h2>Phone<img class="img" src="themes/images/Logo-White-52.png">Book</h2>
+        </heading>
+    </div>
+
+    <div data-role="content">
+        <ul id="list" data-role="listview" data-filter="true"></ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <nav>
+            <a href="#entry" data-role="button" data-inline="true"
+               data-mini="true" data-icon="plus" id="add">Add Item</a>
+        </nav>
+    </div>
+</div>
+<!------------------------------------Add/Edit Page------------------------------->
+<div data-role="page" id="entry" data-theme="a">
+
+    <div data-role="header">
+        <h1 id="name">Phone Book</h1>
+    </div>
+
+    <div data-role="content">
+        <form>
+            <label for="fullname">Full Name:</label><input type="text" id="fullname"/>
+            <label for="homephone">Home Phone (10 char, format XXXXXXXXXX):</label><input type="tel" pattern="[0-9]{10}" id="homephone"/>
+            <label for="workphone">Work Phone (10 char, format XXXXXXXXXX):</label><input type="tel" pattern="[0-9]{10}" id="workphone"/>
+            <label for="email">Home Email:</label><input type="email" id="email"/>
+            <label for="workemail">Work Email:</label> <input type="email" id="workemail"/>
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <nav>
+            <a href="#main" id="update" data-role="button" data-inline="true"
+               data-mini="true" data-icon="check">OK</a>
+            <a href="#main" id="del" data-role="button" data-inline="true"
+               data-mini="true" data-icon="delete" >Delete</a>
+            <a href="#main" data-role="button" data-inline="true" data-rel="back"
+               data-mini="true" data-icon="back">Back</a>
+        </nav>
+    </div>
+</div>
+</body>
+</html>
